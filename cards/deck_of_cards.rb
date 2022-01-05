@@ -3,11 +3,14 @@ class Deck
     def initialize
         @cards = []
         ranks = ["A","K","Q","J","10","9","8","7","6","5","4","3","2"]
+        types = ["spade", "club", "diamond", "heart"]
         ranks.each do |rank|
-            @cards.push(Card.new "spade",rank)
-            @cards.push(Card.new "club" ,rank)
-            @cards.push(Card.new "diamond",rank)
-            @cards.push(Card.new "heart" ,rank)
+            types.each do |type|
+            @cards.push(Card.new type,rank)
+            end
+            # @cards.push(Card.new "club" ,rank)
+            # @cards.push(Card.new "diamond",rank)
+            # @cards.push(Card.new "heart" ,rank)
         end
     end
     def display_cards
@@ -18,10 +21,10 @@ class Deck
     end
 
     def shuffle
-        return @cards.shuffle!
+        @cards.shuffle!
     end
     def deal 
-        return @cards.shift
+        @cards.shift
     end
 end
 
